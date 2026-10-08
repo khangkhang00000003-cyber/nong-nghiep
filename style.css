@@ -1,0 +1,256 @@
+/* Nông Xanh – giao diện tươi sáng, hiện đại. Họa tiết nhận diện: khung vòm nhà kính + luống cây. */
+:root{
+  --leaf:#17703c; --leaf-2:#1f8a4c; --forest:#0e3b2a; --sprout:#c6f26b; --mint:#eef9f1; --mist:#dff3e6;
+  --sun:#ffc933; --mango:#ff9f1c; --ink:#12301f; --muted:#496153; --line:#d3e8da; --white:#fff;
+  --r-sm:12px; --r-md:20px; --r-lg:32px; --shadow:0 10px 30px -12px rgba(14,59,42,.28);
+  --font-body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --font-head:"Fraunces",Georgia,"Times New Roman",serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--white);line-height:1.65;font-size:1.0625rem}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--leaf);text-underline-offset:3px}
+a:hover{color:var(--forest)}
+:focus-visible{outline:3px solid var(--mango);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--font-head);color:var(--forest);line-height:1.15;margin:0 0 .5em;font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,5vw,3.8rem)}
+h2{font-size:clamp(1.7rem,3.2vw,2.4rem)}
+h3{font-size:1.25rem}
+p{margin:0 0 1em}
+.container{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+.narrow{width:min(760px,100% - 2.5rem);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:var(--forest);color:#fff;padding:.7rem 1rem;z-index:100}
+.skip:focus{left:1rem;top:1rem}
+
+/* Thanh thông báo + header */
+.announce{background:var(--forest);color:#e9ffe0;font-size:.9rem;text-align:center;padding:.5rem 1rem}
+.announce a{color:var(--sprout);font-weight:600}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:1.25rem;min-height:72px}
+.brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-family:var(--font-head);font-weight:800;font-size:1.45rem;color:var(--forest)}
+.brand img{width:42px;height:42px}
+.nav{margin-left:auto}
+.nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0}
+.nav a{display:block;padding:.55rem .85rem;border-radius:999px;text-decoration:none;color:var(--ink);font-weight:500;font-size:.98rem}
+.nav a:hover,.nav a[aria-current="page"]{background:var(--mist);color:var(--forest)}
+.cart-btn{display:inline-flex;align-items:center;gap:.5rem;border:0;background:var(--leaf);color:#fff;font:inherit;font-weight:600;padding:.6rem 1.05rem;border-radius:999px;cursor:pointer}
+.cart-btn:hover{background:var(--forest)}
+.cart-count{background:var(--sun);color:var(--forest);border-radius:999px;min-width:1.5rem;height:1.5rem;display:inline-grid;place-items:center;font-size:.8rem;font-weight:800;padding:0 .35rem}
+.menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:12px;width:44px;height:44px;cursor:pointer;font-size:1.3rem}
+
+/* Nút */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;border-radius:999px;font:inherit;font-weight:700;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s,background .15s,color .15s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--leaf);color:#fff}
+.btn-primary:hover{background:var(--forest);color:#fff}
+.btn-sun{background:var(--sun);color:var(--forest)}
+.btn-sun:hover{background:#ffb800;color:var(--forest)}
+.btn-ghost{background:transparent;border-color:var(--forest);color:var(--forest)}
+.btn-ghost:hover{background:var(--forest);color:#fff}
+.btn-sm{padding:.55rem 1rem;font-size:.95rem}
+
+/* Hero: khung vòm nhà kính */
+.hero{background:linear-gradient(180deg,var(--mint),#fff);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:3.5rem 0 4rem}
+.hero .lead{font-size:1.2rem;color:var(--muted);max-width:34em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.6rem 0 1.8rem}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;list-style:none;padding:0;margin:0}
+.chips li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;font-size:.92rem;font-weight:500}
+.arch{position:relative;border-radius:999px 999px var(--r-lg) var(--r-lg);overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff;aspect-ratio:9/10;background:var(--mist)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.hero-float{position:absolute;left:-1rem;bottom:2rem;background:#fff;border-radius:var(--r-md);padding:.85rem 1.1rem;box-shadow:var(--shadow);display:flex;gap:.75rem;align-items:center;max-width:250px}
+.hero-visual{position:relative}
+.hero-float strong{display:block;color:var(--forest);font-size:.95rem;line-height:1.3}
+.hero-float span{font-size:.85rem;color:var(--muted)}
+.hero-float img{width:54px;height:54px;border-radius:14px}
+
+/* Luống cây – đường phân cách giữa các khối */
+.furrow{height:22px;background:
+  radial-gradient(circle at 12px 22px,var(--leaf-2) 9px,transparent 10px) 0 0/48px 22px repeat-x,
+  radial-gradient(circle at 36px 22px,#3bb36a 8px,transparent 9px) 0 0/48px 22px repeat-x;opacity:.9}
+
+section{padding:4.5rem 0}
+.section-head{max-width:46rem;margin-bottom:2.25rem}
+.section-head p{color:var(--muted);font-size:1.1rem}
+.bg-mint{background:var(--mint)}
+.bg-forest{background:var(--forest);color:#e7f5ec}
+.bg-forest h2,.bg-forest h3{color:#fff}
+
+/* Điểm tin cậy */
+.trust{padding:2rem 0 0}
+.trust ul{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;list-style:none;margin:0;padding:0}
+.trust li{display:flex;gap:.85rem;align-items:flex-start;padding:1.1rem 1.2rem;border-radius:var(--r-md);background:var(--mint)}
+.trust .ico{flex:none;width:44px;height:44px;border-radius:14px;background:var(--leaf);color:#fff;display:grid;place-items:center;font-size:1.3rem}
+.trust strong{display:block;color:var(--forest);line-height:1.3}
+.trust span{font-size:.92rem;color:var(--muted);line-height:1.45;display:block}
+
+/* Danh mục dạng vòm */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.cat-card{display:block;text-decoration:none;color:inherit;text-align:center}
+.cat-card .arch-sm{border-radius:999px 999px 22px 22px;overflow:hidden;aspect-ratio:4/5;background:var(--mist);border:4px solid #fff;box-shadow:var(--shadow);transition:transform .25s}
+.cat-card:hover .arch-sm{transform:translateY(-6px)}
+.cat-card img{width:100%;height:100%;object-fit:cover}
+.cat-card h3{margin:1rem 0 .15rem}
+.cat-card p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* Lưới sản phẩm */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.p-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.p-card .thumb{display:block;background:var(--mist);aspect-ratio:1}
+.p-card .thumb img{width:100%;height:100%;object-fit:cover}
+.p-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.p-cat{font-size:.85rem;color:var(--muted)}
+.p-card h3{font-size:1.08rem;margin:0}
+.p-card h3 a{text-decoration:none;color:var(--forest)}
+.p-card h3 a:hover{text-decoration:underline}
+.price{display:flex;align-items:baseline;gap:.55rem;margin-top:auto;padding-top:.5rem}
+.price b{font-size:1.2rem;color:var(--leaf)}
+.price s{color:#7a8e82;font-size:.92rem}
+.badge{position:absolute;top:.75rem;left:.75rem;background:var(--mango);color:#3b1d00;font-weight:800;font-size:.8rem;padding:.25rem .65rem;border-radius:999px}
+.p-card .btn{margin-top:.6rem;width:100%}
+
+/* Lịch mùa vụ */
+.season-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.season{background:#fff;border-radius:var(--r-md);padding:1.6rem;border:1px solid var(--line);border-top:8px solid var(--leaf-2)}
+.season:nth-child(2){border-top-color:var(--sun)}
+.season:nth-child(3){border-top-color:var(--mango)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:1rem 0 0;padding:0}
+.tags li{background:var(--mint);border-radius:999px;padding:.2rem .7rem;font-size:.88rem;color:var(--forest)}
+
+/* Quy trình (đúng là một chuỗi bước) */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--r-md);padding:1.4rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--sprout);color:var(--forest);font-weight:800;margin-bottom:.8rem}
+.steps h3{font-size:1.15rem}
+.steps p{margin:0;color:#cfe8d8;font-size:.97rem}
+
+/* Bài viết */
+.post-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.post-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;text-decoration:none;color:inherit}
+.post-card img{aspect-ratio:1200/630;object-fit:cover;width:100%}
+.post-card div{padding:1rem 1.1rem 1.25rem}
+.post-card h3{font-size:1.08rem;margin:0 0 .4rem}
+.post-card p{font-size:.93rem;color:var(--muted);margin:0}
+.post-card:hover h3{text-decoration:underline}
+.meta{font-size:.88rem;color:var(--muted)}
+
+/* FAQ */
+.faq details{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:1rem 1.25rem;margin-bottom:.8rem}
+.faq summary{cursor:pointer;font-weight:600;color:var(--forest);list-style:none;display:flex;justify-content:space-between;gap:1rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--leaf);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:.8rem 0 0;color:var(--muted)}
+
+/* CTA */
+.cta{background:linear-gradient(120deg,var(--leaf),var(--leaf-2));color:#fff;border-radius:var(--r-lg);padding:2.75rem;display:flex;gap:2rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h2{color:#fff;margin:0 0 .4rem}
+.cta p{margin:0;color:#e1f7e8}
+
+/* Trang trong */
+.page-hero{background:linear-gradient(180deg,var(--mint),#fff);padding:2.2rem 0 2.5rem}
+.page-hero .lead{color:var(--muted);font-size:1.15rem;max-width:42em}
+.breadcrumb{font-size:.92rem;margin-bottom:1rem;color:var(--muted)}
+.breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:0}
+.breadcrumb li+li::before{content:"/";margin-right:.4rem;color:#9bb3a4}
+.breadcrumb a{color:var(--muted)}
+.cat-split{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.4rem}
+.cat-split article{background:var(--mint);border-radius:var(--r-md);padding:1.5rem}
+.cat-split article h3{font-size:1.15rem}
+.cat-split article p{margin:0;color:var(--muted)}
+.prose h2{margin-top:2rem}
+.prose h3{margin-top:1.4rem}
+.prose ul{padding-left:1.2rem}
+.prose li{margin-bottom:.4rem}
+.prose img{border-radius:var(--r-md)}
+.tbl{width:100%;border-collapse:collapse;margin:1rem 0}
+.tbl th,.tbl td{text-align:left;padding:.75rem 1rem;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{width:34%;color:var(--forest);background:var(--mint);font-weight:600}
+
+/* Trang sản phẩm */
+.pdp{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;padding:1rem 0 3rem}
+.pdp-img{border-radius:var(--r-lg);overflow:hidden;background:var(--mist);aspect-ratio:1;border:6px solid #fff;box-shadow:var(--shadow)}
+.pdp-img img{width:100%;height:100%;object-fit:cover}
+.pdp h1{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+.pdp .price b{font-size:1.9rem}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:999px;overflow:hidden}
+.qty button{border:0;background:#fff;width:42px;height:46px;font-size:1.3rem;cursor:pointer;color:var(--forest)}
+.qty button:hover{background:var(--mist)}
+.qty input{width:48px;text-align:center;border:0;font:inherit;font-weight:700;color:var(--forest);-moz-appearance:textfield}
+.buy-row{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.4rem 0}
+.notice{background:var(--mint);border-radius:var(--r-md);padding:1rem 1.2rem;font-size:.95rem;color:var(--muted)}
+.article-cover{border-radius:var(--r-lg);overflow:hidden;margin:1.5rem 0 2rem}
+.cols-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.contact-card{background:var(--mint);border-radius:var(--r-md);padding:1.6rem}
+.contact-card h3{margin-bottom:.4rem}
+
+/* Footer */
+.site-footer{background:var(--forest);color:#cfe8d8;padding:3.5rem 0 1.5rem;margin-top:0}
+.site-footer .foot-title{font-size:1.05rem;color:#fff;font-weight:700;margin:0 0 .8rem}
+.site-footer a{color:#e7f5ec;text-decoration:none}
+.site-footer a:hover{color:var(--sprout);text-decoration:underline}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:2rem}
+.site-footer ul{list-style:none;padding:0;margin:0}
+.site-footer li{margin-bottom:.5rem}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.14);margin-top:2.5rem;padding-top:1.2rem;font-size:.9rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.site-footer .brand{color:#fff;margin-bottom:.8rem}
+
+/* Giỏ hàng (ngăn kéo) */
+.drawer-back{position:fixed;inset:0;background:rgba(14,59,42,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:90}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:#fff;z-index:100;transform:translateX(105%);visibility:hidden;transition:transform .25s,visibility 0s linear .25s;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(0,0,0,.2)}
+body.cart-open .drawer{transform:none;visibility:visible;transition:transform .25s,visibility 0s}
+body.cart-open .drawer-back{opacity:1;pointer-events:auto}
+.drawer header{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.3rem;border-bottom:1px solid var(--line)}
+.drawer-title{margin:0;font-family:var(--font-head);font-weight:700;color:var(--forest);font-size:1.3rem}
+.drawer .close{border:0;background:var(--mint);width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer}
+.cart-items{flex:1;overflow:auto;padding:1rem 1.3rem;list-style:none;margin:0}
+.cart-item{display:grid;grid-template-columns:64px 1fr auto;gap:.8rem;align-items:center;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.cart-item img{width:64px;height:64px;border-radius:12px;object-fit:cover}
+.cart-item strong{display:block;font-size:.97rem;line-height:1.3}
+.cart-item small{color:var(--muted)}
+.cart-item .qty button{height:34px;width:32px}
+.cart-item .qty input{height:34px;width:36px}
+.cart-empty{padding:2rem 1.3rem;color:var(--muted)}
+.drawer footer{padding:1.1rem 1.3rem;border-top:1px solid var(--line);background:var(--mint)}
+.total-row{display:flex;justify-content:space-between;font-weight:700;font-size:1.1rem;margin-bottom:.4rem}
+.ship-note{font-size:.88rem;color:var(--muted);margin-bottom:.9rem}
+.drawer footer .btn{width:100%;margin-bottom:.5rem}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,200%);opacity:0;pointer-events:none;background:var(--forest);color:#fff;padding:.8rem 1.3rem;border-radius:999px;z-index:120;transition:transform .25s,opacity .25s;font-weight:500;max-width:calc(100% - 2rem);text-align:center}
+.toast.show{transform:translate(-50%,0);opacity:1}
+
+/* Nút gọi nổi trên điện thoại */
+.fab{position:fixed;right:1rem;bottom:1rem;z-index:60;display:none;gap:.5rem}
+.fab a{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:var(--leaf);color:#fff;text-decoration:none;font-size:1.4rem;box-shadow:var(--shadow)}
+
+@media (max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{max-width:420px;margin-inline:auto}
+  .cat-grid,.product-grid,.post-grid,.trust ul,.steps{grid-template-columns:repeat(2,1fr)}
+  .season-grid,.cat-split{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .pdp,.cols-2{grid-template-columns:1fr}
+}
+@media (max-width:1020px){
+  .menu-btn{display:grid;place-items:center;margin-left:auto}
+  .nav{position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);display:none;padding:.5rem 1.25rem 1rem}
+  .nav.open{display:block}
+  .nav ul{flex-direction:column}
+  .site-header .container{position:relative}
+  .cart-btn{order:3}
+  .fab{display:flex;flex-direction:column}
+}
+@media (max-width:560px){
+  section{padding:3rem 0}
+  .cat-grid,.product-grid,.post-grid,.trust ul,.steps,.foot-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:.8rem}
+  .p-body{padding:.8rem}
+  .hero-float{display:none}
+  .cta{padding:1.8rem}
+  .brand span{font-size:1.2rem}
+}
+.brand span,.cart-btn{white-space:nowrap}
+.hero-float{text-decoration:none;color:inherit}
+@media (max-width:560px){.cart-label{display:none}.cart-btn::before{content:"🛒"}.cart-btn{padding:.55rem .8rem}.bar{gap:.6rem}.announce{font-size:.82rem}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
